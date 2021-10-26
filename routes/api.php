@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\API\VehicleController as VehicleController;
+use \App\Http\Controllers\VendorController as VendorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::prefix('vehicle')->group(function (){
     Route::get('/model/{id}/modifications', [VehicleController::class, 'getModificationByModel']);
     Route::get('/generation/{id}/modifications', [VehicleController::class, 'getModificationByGeneration']);
 });
+
+Route::get('vendors', [VendorController::class, 'index']);
 
 Route::get('/user/{id}', function ($id) {
    return $id;
